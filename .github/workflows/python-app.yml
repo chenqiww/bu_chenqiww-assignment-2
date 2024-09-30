@@ -29,14 +29,17 @@ jobs:
 
     - name: Run the application
       run: |
-        make run &
+        nohup make run > server_output.log 2>&1 &
         sleep 5
+
+    - name: Display server output
+      run: |
+        cat server_output.log
 
     - name: Verify server is running
       run: |
-        sleep 5
         echo "Testing the server..."
-        curl --fail http://localhost:3000 || exit 1
+        curl --fail http://127.0.0.1:3000 || exit 1
 
     - name: Success
       run: echo "Server is running successfully."
