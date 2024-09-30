@@ -1,3 +1,5 @@
+# .github/workflows/python-app.yml
+
 name: Python application
 
 on:
@@ -16,7 +18,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3  # Updated to the correct version
 
     - name: Set up Python
       uses: actions/setup-python@v3
@@ -27,13 +29,14 @@ jobs:
       run: |
         make install
 
-    - name: Run the application
+    - name: Run the application in the background
       run: |
-        nohup make run > server_output.log 2>&1 &
-        sleep 5
+        make run
+        sleep 10
 
     - name: Display server output
       run: |
+        echo "Server output:"
         cat server_output.log
 
     - name: Verify server is running
