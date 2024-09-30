@@ -31,7 +31,7 @@ jobs:
 
     - name: Run the application in the background
       run: |
-        nohup python app.py > server_output.log 2>&1 &
+        make run
         sleep 10
 
     - name: Display server output
