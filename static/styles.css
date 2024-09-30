@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#controls {
+    margin: 20px;
+}
+
+#plot {
+    width: 80%;
+    margin: auto;
+}
