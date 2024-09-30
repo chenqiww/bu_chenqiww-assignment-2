@@ -31,7 +31,7 @@ jobs:
 
     - name: Run the application in the background
       run: |
-        make run &
+        make run > server_output.log 2>&1 &
         sleep 10
 
     - name: Display server output
